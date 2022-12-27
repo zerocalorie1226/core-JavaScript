@@ -7,7 +7,7 @@ console.log(
   'ECMAScript의 `문`은 어떠한 작업을 수행하는 문법 구조 및 명령을 의미합니다.'
 );
 
-// 세미콜론 (semicolons){red,0}
+// 세미콜론 (semicolons) {red,0}
 console.log(
   '다음 줄에서 코드를 작성 할 경우, 세미콜론을 붙인 것과 동일합니다.'
 );
