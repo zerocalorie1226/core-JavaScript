@@ -22,17 +22,14 @@ let data = JSON.stringify({
   },
 });
 
-let user = JSON.parse(data);
-console.log(user);
-
-console.log(user);
-
 try {
-  user.name;
-  console.log('시도합니다.');
-} catch (err) {
-  console.log(err);
-  console.log(err.name);
-  console.log(err.message);
-  console.log(err.stack);
+  let user = JSON.parse(data);
+
+  if (!user.value) {
+    throw new ReferenceError('해당 키 값은 존재하지 않습니다.');
+  }
+} catch (e) {
+  console.log('JSON Error : ' + e.message);
+} finally {
+  console.log('일단 임무 완료..!');
 }
