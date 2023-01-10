@@ -74,10 +74,27 @@ function getAttr(node, prop) {
     node = getNode(node);
   }
 
-  node.getAttribute(prop);
+  return node.getAttribute(prop);
 }
 
-getAttr('.first', 'class'); // first
+getAttr('.first', 'data-play'); // first
+
+setAttr('.first', 'data-value', 'hello');
+
+function setAttr(node, prop, value) {
+  if (typeof node === 'string') {
+    node = getNode(node);
+  }
+  if (typeof prop !== 'string') {
+    throw new TypeError(
+      'setAttr 함수의 두 번째 인자의 타입은 string 이어야 합니다.'
+    );
+  }
+  if (!value)
+    throw new SyntaxError('setAttr 함수의 세 번째 인자는 필수값입니다.');
+
+  node.setAttribute(prop, value);
+}
 
 console.assert(getAttr('.first', 'class') === 'first');
 
