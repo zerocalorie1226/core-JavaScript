@@ -11,6 +11,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'no-unused-vare': 'warn',
+    'no-unused-vars': 'warn',
   },
 };
