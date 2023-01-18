@@ -44,6 +44,7 @@ export function xhrData({
       onFail('통신 실패');
     }
   });
+
   // 서버에 요청
   xhr.send(JSON.stringify(body));
 }
