@@ -50,14 +50,19 @@ const defaultOptions = {
   errorMessage: '알 수 없는 오류가 발생했습니다.',
 };
 
-function delayP(options = {}) {
+export function delayP(options = {}) {
   // defaultOptions
 
   let config = { ...defaultOptions };
 
-  // 객체 합성  mixin
+  if (isNumber(options)) {
+    config.timeout = options;
+  }
 
-  config = { ...config, ...options };
+  // 객체 합성  mixin
+  if (isObject(options)) {
+    config = { ...config, ...options };
+  }
 
   const { shouldReject, data, errorMessage, timeout } = config;
 
@@ -68,11 +73,9 @@ function delayP(options = {}) {
   });
 }
 
-delayP({
-  data: '안녕',
-}).then((res) => {
-  console.log(res); // 진짜 성공
-});
+// delayP(3000).then((res)=>{
+//   console.log(res); // 진짜 성공
+// })
 
 // delayP()
 // .then(res=>console.log(res))
