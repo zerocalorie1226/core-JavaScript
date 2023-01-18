@@ -171,7 +171,7 @@ const defaultOptions = {
   body: null,
 };
 
-function xhrPromise(options = {}) {
+export function xhrPromise(options = {}) {
   const xhr = new XMLHttpRequest();
 
   const { method, url, body, headers } = Object.assign(
@@ -201,12 +201,27 @@ function xhrPromise(options = {}) {
   });
 }
 
-xhrPromise({
-  url: 'https://jsonplaceholder.typicode.com/users/1',
-})
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(err);
+// xhrPromise({
+//   url:'https://jsonplaceholder.typicode.com/users/1'
+// })
+// .then((res)=>{
+//   console.log(res);
+// })
+// .catch((err)=>{
+//   console.log(err);
+// })
+
+xhrPromise.get = (url) => {
+  return xhrPromise({
+    url,
   });
+};
+
+// xhrPromise
+//   .get('www.naver.com') // promise
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
